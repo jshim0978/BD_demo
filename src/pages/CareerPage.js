@@ -82,19 +82,20 @@ const EDGES = [
 ];
 
 const CAREER_PATH_DETAILS = {
-    "Liberal Arts Major": "Starting point with a broad knowledge base.",
-    "Learn Basic Programming": "Acquire fundamental programming skills in languages such as Python, JavaScript, or Java.",
-    "Web Developer": "Focus on front-end or back-end development for websites.",
-    "Software Engineer": "Design, develop, and maintain software applications.",
-    "Data Analyst": "Analyze data to help make informed business decisions.",
-    "Technical Writer": "Create manuals, guides, and other documentation.",
-    "IT Support Specialist": "Provide technical support and troubleshooting.",
-    "Advanced Programming": "Gain deeper knowledge in complex programming concepts.",
-    "Senior Web Developer": "Lead web development projects with advanced skills.",
-    "System Architect": "Design and oversee complex IT systems.",
-    "Project Manager": "Manage projects, timelines, and teams effectively.",
-    "UI/UX Designer": "Design user interfaces and experiences for applications."
+    "Liberal Arts Major": "폭넓은 지식 기반을 쌓는 단계.",
+    "Learn Basic Programming": "Python, JavaScript, 또는 Java와 같은 기본 프로그래밍 기술을 습득하는 단계.",
+    "Web Developer": "웹사이트의 프론트엔드 또는 백엔드 개발에 집중하는 단계.",
+    "Software Engineer": "소프트웨어 애플리케이션을 설계, 개발 및 유지 관리하는 단계.",
+    "Data Analyst": "데이터를 분석하여 정보에 기반한 비즈니스 결정을 내리는 단계.",
+    "Technical Writer": "매뉴얼, 가이드 및 기타 문서를 작성하는 단계.",
+    "IT Support Specialist": "기술 지원 및 문제 해결을 제공하는 단계.",
+    "Advanced Programming": "복잡한 프로그래밍 개념에 대해 더 깊은 지식을 쌓는 단계.",
+    "Senior Web Developer": "고급 기술로 웹 개발 프로젝트를 이끄는 단계.",
+    "System Architect": "복잡한 IT 시스템을 설계하고 감독하는 단계.",
+    "Project Manager": "프로젝트, 일정 및 팀을 효과적으로 관리하는 단계.",
+    "UI/UX Designer": "애플리케이션의 사용자 인터페이스와 경험을 설계하는 단계."
 };
+
 
 const RECOMMENDED_PATH = [
     "Liberal Arts Major",
@@ -130,17 +131,17 @@ function CareerPage() {
     return (
         <StyledBox>
             <Typography variant="h4" gutterBottom>
-                Career Paths for {username}
+                {username}님의 커리어 패스 탐색
             </Typography>
-            <Typography variant="h6" gutterBottom>
-                As a liberal arts major getting into IT development, here are some potential career paths:
-            </Typography>
+            {/*<Typography variant="h6" gutterBottom>*/}
+            {/*    IT 개발에 진출하려는 경우, 다음과 같은 잠재적인 경력 경로가 있습니다:*/}
+            {/*</Typography>*/}
             <StyledButton
                 onClick={handleGenerateClick}
                 disabled={loading}
                 startIcon={loading ? <CircularProgress size={24} /> : <AiIcon />}
             >
-                {loading ? 'Loading...' : "Generate Career Paths using AI"}
+                {loading ? 'Loading...' : "AI 커리어 패스 생성"}
             </StyledButton>
             {/*{loading && (*/}
             {/*    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>*/}
@@ -189,7 +190,7 @@ function CareerPage() {
                     </div>
                     <Box sx={{ mt: 4 }}>
                         <Typography variant="h6" gutterBottom>
-                            Career Path Details
+                            커리어 패스 상세 설명
                         </Typography>
                         <StyledList>
                             {Object.entries(CAREER_PATH_DETAILS).map(([key, value]) => (
@@ -202,7 +203,7 @@ function CareerPage() {
                             ))}
                         </StyledList>
                         <Typography variant="h6" gutterBottom sx={{ mt: 4 }}>
-                            Recommended Path
+                            AI 추천 커리어 패스
                         </Typography>
                         <Typography variant="body1">
                             {RECOMMENDED_PATH.join(" ➡️ ")}

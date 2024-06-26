@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import {
     AppBar,
     Toolbar,
@@ -26,7 +26,6 @@ import RegistrationPage from './pages/RegistrationPage';
 import userProfiles from "./userProfiles";
 import m2z2 from './assets/m2z2.png';
 
-
 // Create a theme instance
 const theme = createTheme({
     palette: {
@@ -49,9 +48,13 @@ function App() {
     const [value, setValue] = useState("/");
     const [currentUser, setCurrentUser] = useState(null);
 
-    const handleLogin = (username) => {
+    const handleLogin = (username, password) => {
         const user = userProfiles.find(u => u.name.toLowerCase() === username.toLowerCase());
-        setCurrentUser(user);
+        if (user && user.password === password) {
+            setCurrentUser(user);
+        } else {
+            alert('Invalid username or password');
+        }
     };
 
     const handleRegister = (newUser) => {
@@ -64,8 +67,8 @@ function App() {
             <Router>
                 <div>
                     <AppBar position="static">
-                        <Toolbar style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                            <img src={m2z2} alt="Logo" style={{height: '40px', marginRight: '10px'}}/>
+                        <Toolbar style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <img src={m2z2} alt="Logo" style={{ height: '40px', marginRight: '10px' }} />
                             <Typography variant="h5" color="inherit">
                                 빅데이터 공모전 데모
                             </Typography>
@@ -73,29 +76,25 @@ function App() {
                     </AppBar>
                     <Routes>
                         {currentUser ? (
-                            <Route path="/" element={<MyPage user={currentUser}/>}/>
+                            <Route path="/" element={<MyPage user={currentUser} />} />
                         ) : (
-                            <Route path="*" element={<LoginPage onLogin={handleLogin}/>}/>
+                            <Route path="*" element={<LoginPage onLogin={handleLogin} />} />
                         )}
-                        <Route path="/register" element={<RegistrationPage onRegister={handleRegister}/>}/>
-                        <Route path="/information" element={<InformationPage user={currentUser}/>}/>
-                        <Route path="/career" element={<CareerPage user={currentUser}/>}/>
-                        <Route path="/settings" element={<SettingsPage user={currentUser}/>}/>
+                        <Route path="/register" element={<RegistrationPage onRegister={handleRegister} />} />
+                        <Route path="/information" element={<InformationPage user={currentUser} />} />
+                        <Route path="/career" element={<CareerPage user={currentUser} />} />
+                        <Route path="/settings" element={<SettingsPage user={currentUser} />} />
                     </Routes>
-                    <Paper sx={{position: 'fixed', bottom: 0, left: 0, right: 0}} elevation={3}>
+                    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
                         <BottomNavigation
                             value={value}
                             onChange={(event, newValue) => setValue(newValue)}
                             showLabels
                         >
-                            <BottomNavigationAction label="My Page" value="/" icon={<PersonIcon/>} component={Link}
-                                                    to="/"/>
-                            <BottomNavigationAction label="Information" value="/information" icon={<InfoIcon/>}
-                                                    component={Link} to="/information"/>
-                            <BottomNavigationAction label="Career" value="/career" icon={<WorkIcon/>} component={Link}
-                                                    to="/career"/>
-                            <BottomNavigationAction label="Settings" value="/settings" icon={<SettingsIcon/>}
-                                                    component={Link} to="/settings"/>
+                            <BottomNavigationAction label="My Page" value="/" icon={<PersonIcon />} component={Link} to="/" />
+                            <BottomNavigationAction label="Information" value="/information" icon={<InfoIcon />} component={Link} to="/information" />
+                            <BottomNavigationAction label="Career" value="/career" icon={<WorkIcon />} component={Link} to="/career" />
+                            <BottomNavigationAction label="Settings" value="/settings" icon={<SettingsIcon />} component={Link} to="/settings" />
                         </BottomNavigation>
                     </Paper>
                 </div>

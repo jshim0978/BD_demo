@@ -44,34 +44,33 @@ function GovernmentalBenefits() {
 
     const benefitsData = [
         {
-            title: "Startup Growth Booster Program",
-            description: "Provides mentoring, funding, and resources to support startup companies aiming to expand their business operations. This program includes workshops, one-on-one mentorship, and financial grants up to $50,000.",
-            eligibility: "Startups registered for less than five years.",
-            applicationProcess: "Submit an online application with a detailed business plan.",
-            deadline: "December 31, 2024"
+            title: "스타트업 성장 부스터 프로그램",
+            description: "스타트업 기업이 사업 운영을 확장할 수 있도록 멘토링, 자금 및 자원을 제공합니다. 이 프로그램에는 워크숍, 일대일 멘토링, 최대 $50,000의 재정 보조금이 포함됩니다.",
+            eligibility: "설립된 지 5년 미만의 스타트업.",
+            applicationProcess: "자세한 사업 계획서를 포함한 온라인 신청서를 제출하십시오.",
+            deadline: "2024년 12월 31일"
         },
         {
-            title: "Youth Job Creation Support",
-            description: "Aims to create more job opportunities for young adults through partnerships with various industries and businesses. The program offers wage subsidies for employers and training programs for job seekers.",
-            eligibility: "Youth aged 18-30 who are currently unemployed.",
-            applicationProcess: "Register through the Youth Employment Portal and attend an orientation session.",
-            deadline: "September 15, 2024"
+            title: "청년 일자리 창출 지원",
+            description: "다양한 산업 및 비즈니스와의 협력을 통해 청년들에게 더 많은 일자리 기회를 창출하는 것을 목표로 합니다. 이 프로그램은 고용주에게 임금 보조금과 구직자에게 훈련 프로그램을 제공합니다.",
+            eligibility: "현재 실직 상태인 18-30세의 청년.",
+            applicationProcess: "청년 고용 포털을 통해 등록하고 오리엔테이션 세션에 참석하십시오.",
+            deadline: "2024년 9월 15일"
         },
         {
-            title: "Small Business Technology Grant",
-            description: "Offers financial assistance for small businesses to adopt new technologies and improve their operational efficiency. Grants can cover up to 75% of technology upgrade costs, with a maximum of $20,000.",
-            eligibility: "Small businesses with fewer than 50 employees.",
-            applicationProcess: "Complete an online application and provide a detailed project plan.",
-            deadline: "March 1, 2024"
+            title: "소규모 비즈니스 기술 보조금",
+            description: "소규모 비즈니스가 새로운 기술을 채택하고 운영 효율성을 개선할 수 있도록 재정 지원을 제공합니다. 보조금은 기술 업그레이드 비용의 최대 75%를 지원하며, 최대 $20,000까지 지원됩니다.",
+            eligibility: "직원 수가 50명 미만인 소규모 비즈니스.",
+            applicationProcess: "온라인 신청서를 작성하고 자세한 프로젝트 계획서를 제출하십시오.",
+            deadline: "2024년 3월 1일"
         },
         {
-            title: "Green Energy Incentive",
-            description: "Encourages businesses to reduce their carbon footprint by providing subsidies for adopting green energy solutions. Eligible projects include solar panel installations, wind turbines, and energy-efficient upgrades.",
-            eligibility: "Businesses implementing or utilizing renewable energy sources.",
-            applicationProcess: "Submit a proposal outlining the green energy project and its expected impact.",
-            deadline: "November 20, 2024"
+            title: "녹색 에너지 인센티브",
+            description: "기업이 탄소 배출량을 줄이도록 장려하기 위해 녹색 에너지 솔루션을 채택하는 데 보조금을 제공합니다. 해당 프로젝트에는 태양광 패널 설치, 풍력 터빈, 에너지 효율적인 업그레이드 등이 포함됩니다.",
+            eligibility: "재생 가능 에너지원을 구현하거나 사용하는 기업.",
+            applicationProcess: "녹색 에너지 프로젝트 및 예상 효과를 설명하는 제안서를 제출하십시오.",
+            deadline: "2024년 11월 20일"
         }
-        // Additional benefits data...
     ];
 
     const handleGenerateBenefits = () => {
@@ -89,15 +88,15 @@ function GovernmentalBenefits() {
             </Typography>
             {!benefitsDisplayed && (
                 <Box textAlign="center">
-                    <Typography variant="h5" gutterBottom>
-                        Discover Governmental Benefits
-                    </Typography>
+                    {/*<Typography variant="h5" gutterBottom>*/}
+                    {/*    Discover Governmental Benefits*/}
+                    {/*</Typography>*/}
                     <StyledButton
                         onClick={handleGenerateBenefits}
                         disabled={loading}
                         startIcon={loading ? <CircularProgress size={24}/> : <AiIcon/>}
                     >
-                        {loading ? 'Loading...' : "Generate with AI"}
+                        {loading ? 'Loading...' : "AI 검색"}
                     </StyledButton>
                 </Box>
             )}
