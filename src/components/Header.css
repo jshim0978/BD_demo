@@ -1,0 +1,11 @@
+.header {
+    padding: 1rem 2rem;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+}
+
+.header-title {
+    margin: 0;
+    font-size: 2rem;
+}
