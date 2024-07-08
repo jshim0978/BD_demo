@@ -1,5 +1,5 @@
-import React from 'react';
-import { Typography, Paper, Box, Grid, Divider, Link, Chip, Avatar } from '@mui/material';
+import React, { useState } from 'react';
+import { Typography, Paper, Box, Grid, Divider, Link, Chip, Avatar, Dialog, DialogTitle, DialogContent } from '@mui/material';
 import { Email, Phone, LinkedIn, GitHub } from '@mui/icons-material';
 import { styled } from '@mui/system';
 
@@ -60,6 +60,19 @@ const IconSpan = styled('span')({
 });
 
 function MyPage({ user }) {
+    const [open, setOpen] = useState(false);
+    const [modalUrl, setModalUrl] = useState('');
+
+    const handleClickOpen = (url) => {
+        setModalUrl(url);
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+        setModalUrl('');
+    };
+
     if (!user) return <StyledBox sx={{ p: 3 }}>No User Data Available</StyledBox>;
 
     return (
@@ -75,6 +88,7 @@ function MyPage({ user }) {
                     </Box>
                     <StyledTypography variant="body2">{user.contact.email} <Email fontSize="small" /></StyledTypography>
                     <StyledTypography variant="body2">{user.contact.phone} <Phone fontSize="small" /></StyledTypography>
+                    <StyledTypography variant="body2">Living in {user.contact.address} </StyledTypography>
                     {user.socialMedia.linkedIn && (
                         <StyledLink href={user.socialMedia.linkedIn} target="_blank">
                             LinkedIn <LinkedIn fontSize="small" />
@@ -89,23 +103,23 @@ function MyPage({ user }) {
                 <Grid item xs={12} md={8}>
                     <StyledTypography variant="body1" paragraph>{user.summary}</StyledTypography>
                     <StyledDivider />
-                    <StyledTypography variant="h6">Skills</StyledTypography>
+                    <StyledTypography variant="h6">특기</StyledTypography>
                     {user.skills.map((skill, index) => (
                         <StyledChip key={index} label={skill} variant="outlined" />
                     ))}
                     <StyledDivider />
-                    <StyledTypography variant="h6">Languages</StyledTypography>
+                    <StyledTypography variant="h6">언어</StyledTypography>
                     {user.languages.map((language, index) => (
                         <StyledChip key={index} label={language} variant="outlined" />
                     ))}
                     <StyledDivider />
-                    <StyledTypography variant="h6">Certifications</StyledTypography>
+                    <StyledTypography variant="h6">자격증</StyledTypography>
                     {user.certifications.map((certification, index) => (
                         <StyledTypography key={index} variant="body2">{certification}</StyledTypography>
                     ))}
                 </Grid>
                 <Grid item xs={12}>
-                    <StyledTypography variant="h6">Experience</StyledTypography>
+                    <StyledTypography variant="h6">경력사항</StyledTypography>
                     {user.experiences.map((exp, index) => (
                         <StyledPaper key={index}>
                             <StyledTypography variant="h6" component="h3">{exp.role}</StyledTypography>
@@ -115,7 +129,7 @@ function MyPage({ user }) {
                     ))}
                 </Grid>
                 <Grid item xs={12}>
-                    <StyledTypography variant="h6">Education</StyledTypography>
+                    <StyledTypography variant="h6">교육</StyledTypography>
                     {user.education.map((edu, index) => (
                         <StyledPaper key={index}>
                             <StyledTypography variant="h6" component="h3">{edu.degree}</StyledTypography>
@@ -124,7 +138,7 @@ function MyPage({ user }) {
                     ))}
                 </Grid>
                 <Grid item xs={12}>
-                    <StyledTypography variant="h6">Projects</StyledTypography>
+                    <StyledTypography variant="h6">프로젝트</StyledTypography>
                     {user.projects.map((project, index) => (
                         <StyledPaper key={index}>
                             <StyledTypography variant="h6" component="h3">{project.title}</StyledTypography>
@@ -133,7 +147,7 @@ function MyPage({ user }) {
                     ))}
                 </Grid>
                 <Grid item xs={12}>
-                    <StyledTypography variant="h6">Publications</StyledTypography>
+                    <StyledTypography variant="h6">출간물</StyledTypography>
                     {user.publications && user.publications.map((publication, index) => (
                         <StyledPaper key={index}>
                             <StyledTypography variant="h6" component="h3">{publication.title}</StyledTypography>
@@ -142,18 +156,28 @@ function MyPage({ user }) {
                     ))}
                 </Grid>
                 <Grid item xs={12}>
-                    <StyledTypography variant="h6"></StyledTypography>
-                    {user.references && user.references.map((reference, index) => (
-                        <StyledTypography key={index} variant="body2">{reference}</StyledTypography>
-                    ))}
-                </Grid>
-                <Grid item xs={12}>
-                    <StyledTypography variant="h6"></StyledTypography>
-                    {user.references && user.references.map((reference, index) => (
-                        <StyledTypography key={index} variant="body2">{reference}</StyledTypography>
-                    ))}
+                    <StyledTypography variant="h6">받고 있는 혜택</StyledTypography>
+                    <Grid container spacing={2}>
+                        {user.benefits && user.benefits.map((benefit, index) => (
+                            <Grid item xs={12} md={4} key={index}>
+                                <StyledPaper>
+                                    <StyledTypography variant="h6">{benefit.name}</StyledTypography>
+                                    <StyledTypography variant="body2">{benefit.description}</StyledTypography>
+                                    <StyledLink component="button" onClick={() => handleClickOpen(benefit.url)}>
+                                        Learn More
+                                    </StyledLink>
+                                </StyledPaper>
+                            </Grid>
+                        ))}
+                    </Grid>
                 </Grid>
             </Grid>
+            <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
+                <DialogTitle>Benefit Information</DialogTitle>
+                <DialogContent>
+                    <iframe src={modalUrl} width="100%" height="500px" title="Benefit Information" />
+                </DialogContent>
+            </Dialog>
         </StyledBox>
     );
 }

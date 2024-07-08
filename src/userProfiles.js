@@ -7,7 +7,8 @@ const userProfiles = [
         image: "/images/user1.jpg",  // Placeholder for user profile image
         contact: {
             email: "seungwook.jung@email.com",
-            phone: "+82 10 1234 5678"
+            phone: "+82 10 1234 5678",
+            address: "Seoul"
         },
         socialMedia: {
             linkedIn: "https://www.linkedin.com/in/seungwook-jung",
@@ -37,7 +38,24 @@ const userProfiles = [
                 description: "지난 10년간의 문화 데이터 동향을 분석하고 시각화하기 위해 Python 기반 도구를 개발했습니다."
             }
         ],
-        certifications: ["Google IT Support Professional Certificate"]
+        certifications: ["Google IT Support Professional Certificate"],
+        benefits: [
+            {
+                name: "구직 활동 지원금",
+                description: "새로운 경력 기회를 찾는 동안 생계비를 지원받을 수 있습니다.",
+                url: "https://www.gov.kr/portal/service/serviceInfo/PRD000001108297"
+            },
+            {
+                name: "직업 훈련 프로그램",
+                description: "정부가 제공하는 재교육 및 재훈련 프로그램에 참여하여 새로운 기술을 습득할 수 있습니다.",
+                url: "https://www.hrd.go.kr/hrdp/mb/pmbao/indexNew.jsp"
+            },
+            {
+                name: "경력 전환 상담 서비스",
+                description: "경력 전환 과정에서 전문가의 상담과 지도를 받을 수 있습니다.",
+                url: "https://www.work.go.kr/consltJobCarpa/main.do"
+            }
+        ]
     },
     {
         id: 2,
@@ -47,7 +65,8 @@ const userProfiles = [
         image: "/images/user2.jpg",
         contact: {
             email: "ahjung@financepro.com",
-            phone: "+82 10 8765 4321"
+            phone: "+82 10 8765 4321",
+            address: "Seoul"
         },
         socialMedia: {
             linkedIn: "https://www.linkedin.com/in/jonghyun-ahn",
@@ -84,7 +103,31 @@ const userProfiles = [
                 year: "2015"
             }
         ],
-        references: ["John Doe, Global Finance Corp의 CEO"]
+        projects: [
+            {
+                title: "효율성 개선 이니셔티브",
+                description: "추가 자원 없이 생산량을 20% 증가시키는 프로젝트를 주도했습니다."
+            }
+        ],
+        certifications: ["Certified Lean Six Sigma Green Belt"],
+        // references: ["John Doe, Global Finance Corp의 CEO"],
+        benefits: [
+            {
+                name: "구직 활동 지원금",
+                description: "새로운 경력 기회를 찾는 동안 생계비를 지원받을 수 있습니다.",
+                url: "https://www.gov.kr/portal/service/serviceInfo/PRD000001108297"
+            },
+            {
+                name: "직업 훈련 프로그램",
+                description: "정부가 제공하는 재교육 및 재훈련 프로그램에 참여하여 새로운 기술을 습득할 수 있습니다.",
+                url: "https://www.hrd.go.kr/hrdp/mb/pmbao/indexNew.jsp"
+            },
+            {
+                name: "경력 전환 상담 서비스",
+                description: "경력 전환 과정에서 전문가의 상담과 지도를 받을 수 있습니다.",
+                url: "https://www.work.go.kr/consltJobCarpa/main.do"
+            }
+        ]
     },
     {
         id: 3,
@@ -94,11 +137,12 @@ const userProfiles = [
         image: "/images/user3.jpg",
         contact: {
             email: "heesup.kim@efficientmanuf.com",
-            phone: "+82 10 3344 5566"
+            phone: "+82 10 3344 5566",
+            address: "Seoul"
         },
         socialMedia: {
             linkedIn: "https://www.linkedin.com/in/heesupkim",
-            github: "https://github.com/heesupkim"
+            github: "https://github.com/heesupkim",
         },
         summary: "생산 분야에서 10년의 경력을 가진 헌신적인 제조 감독자로서 현재 더 나은 워크-라이프 밸런스와 재정적 안정성을 제공하는 경력 기회를 평가하고 있습니다. 운영 관리 및 효율성 최적화 기술을 활용할 수 있는 역할에 관심이 있습니다.",
         skills: ["운영 관리", "팀 리더십", "효율성 최적화", "문제 해결"],
@@ -130,7 +174,32 @@ const userProfiles = [
                 description: "추가 자원 없이 생산량을 20% 증가시키는 프로젝트를 주도했습니다."
             }
         ],
-        certifications: ["Certified Lean Six Sigma Green Belt"]
+        publications: [
+            {
+                title: "진화하는 금융 시장",
+                publisher: "Journal of Finance",
+                year: "2015"
+            }
+        ],
+        certifications: ["Certified Lean Six Sigma Green Belt"],
+        benefits: [
+            {
+                name: "구직 활동 지원금",
+                description: "새로운 경력 기회를 찾는 동안 생계비를 지원받을 수 있습니다.",
+                url: "https://www.gov.kr/portal/service/serviceInfo/PRD000001108297"
+            },
+            {
+                name: "직업 훈련 프로그램",
+                description: "정부가 제공하는 재교육 및 재훈련 프로그램에 참여하여 새로운 기술을 습득할 수 있습니다.",
+                url: "https://www.hrd.go.kr/hrdp/mb/pmbao/indexNew.jsp"
+            },
+            {
+                name: "경력 전환 상담 서비스",
+                description: "경력 전환 과정에서 전문가의 상담과 지도를 받을 수 있습니다.",
+                url: "https://www.work.go.kr/consltJobCarpa/main.do"
+            }
+        ]
+
     }
 ];
 

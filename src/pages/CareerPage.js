@@ -169,21 +169,21 @@ function CareerPage() {
                             paneMoveable={true}
                             onLoad={rfInstance => rfInstance.fitView()}  // Fits the elements into the view
                         >
-                            <MiniMap
-                                nodeColor={(node) => {
-                                    switch (node.type) {
-                                        case 'input': return '#FFCC00';
-                                        default: return '#00FFCC';
-                                    }
-                                }}
-                                nodeStrokeColor={(node) => {
-                                    switch (node.type) {
-                                        case 'input': return '#FF6600';
-                                        default: return '#0066FF';
-                                    }
-                                }}
-                                nodeBorderRadius={2}
-                            />
+                            {/*<MiniMap*/}
+                            {/*    nodeColor={(node) => {*/}
+                            {/*        switch (node.type) {*/}
+                            {/*            case 'input': return '#FFCC00';*/}
+                            {/*            default: return '#00FFCC';*/}
+                            {/*        }*/}
+                            {/*    }}*/}
+                            {/*    nodeStrokeColor={(node) => {*/}
+                            {/*        switch (node.type) {*/}
+                            {/*            case 'input': return '#FF6600';*/}
+                            {/*            default: return '#0066FF';*/}
+                            {/*        }*/}
+                            {/*    }}*/}
+                            {/*    nodeBorderRadius={2}*/}
+                            {/*/>*/}
                             <Controls />
                             <Background color="#aaa" gap={16} />
                         </ReactFlow>
