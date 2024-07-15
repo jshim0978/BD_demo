@@ -11,7 +11,7 @@ const StyledBox = styled(Box)({
     marginBottom: '120px',
     maxWidth: '1500px',
     overflowY: 'auto',
-    height: 'calc(100vh - 118px)',
+    // height: 'calc(100vh - 118px)',
     boxShadow: '0 10px 20px rgba(0,0,0,0.12)',
     borderRadius: 8
 });

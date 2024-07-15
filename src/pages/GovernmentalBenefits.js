@@ -17,8 +17,9 @@ const StyledList = styled(List)(({ theme }) => ({
     width: '100%',
     backgroundColor: theme.palette.background.paper,
     overflowY: 'auto',
-    maxHeight: 800,
-    marginTop: theme.spacing(2)
+    // maxHeight: 800,
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(5)
 }));
 
 const StyledListItem = styled(ListItem)(({ theme }) => ({
@@ -38,40 +39,10 @@ const StyledButton = styled(Button)(({ theme }) => ({
     }
 }));
 
-function GovernmentalBenefits() {
+function GovernmentalBenefits({user}) {
     const [loading, setLoading] = useState(false);
-    const [benefitsDisplayed, setBenefitsDisplayed] = useState(false);
+    const [benefitsDisplayed, setBenefitsDisplayed] = useState();
 
-    const benefitsData = [
-        {
-            title: "스타트업 성장 부스터 프로그램",
-            description: "스타트업 기업이 사업 운영을 확장할 수 있도록 멘토링, 자금 및 자원을 제공합니다. 이 프로그램에는 워크숍, 일대일 멘토링, 최대 $50,000의 재정 보조금이 포함됩니다.",
-            eligibility: "설립된 지 5년 미만의 스타트업.",
-            applicationProcess: "자세한 사업 계획서를 포함한 온라인 신청서를 제출하십시오.",
-            deadline: "2024년 12월 31일"
-        },
-        {
-            title: "청년 일자리 창출 지원",
-            description: "다양한 산업 및 비즈니스와의 협력을 통해 청년들에게 더 많은 일자리 기회를 창출하는 것을 목표로 합니다. 이 프로그램은 고용주에게 임금 보조금과 구직자에게 훈련 프로그램을 제공합니다.",
-            eligibility: "현재 실직 상태인 18-30세의 청년.",
-            applicationProcess: "청년 고용 포털을 통해 등록하고 오리엔테이션 세션에 참석하십시오.",
-            deadline: "2024년 9월 15일"
-        },
-        {
-            title: "소규모 비즈니스 기술 보조금",
-            description: "소규모 비즈니스가 새로운 기술을 채택하고 운영 효율성을 개선할 수 있도록 재정 지원을 제공합니다. 보조금은 기술 업그레이드 비용의 최대 75%를 지원하며, 최대 $20,000까지 지원됩니다.",
-            eligibility: "직원 수가 50명 미만인 소규모 비즈니스.",
-            applicationProcess: "온라인 신청서를 작성하고 자세한 프로젝트 계획서를 제출하십시오.",
-            deadline: "2024년 3월 1일"
-        },
-        {
-            title: "녹색 에너지 인센티브",
-            description: "기업이 탄소 배출량을 줄이도록 장려하기 위해 녹색 에너지 솔루션을 채택하는 데 보조금을 제공합니다. 해당 프로젝트에는 태양광 패널 설치, 풍력 터빈, 에너지 효율적인 업그레이드 등이 포함됩니다.",
-            eligibility: "재생 가능 에너지원을 구현하거나 사용하는 기업.",
-            applicationProcess: "녹색 에너지 프로젝트 및 예상 효과를 설명하는 제안서를 제출하십시오.",
-            deadline: "2024년 11월 20일"
-        }
-    ];
 
     const handleGenerateBenefits = () => {
         setLoading(true);
@@ -102,9 +73,9 @@ function GovernmentalBenefits() {
             )}
             {!loading && benefitsDisplayed && (
                 <StyledList>
-                    {benefitsData.map((benefit, index) => (
+                    {user.benefitsData.map((benefit, index) => (
                         <StyledListItem key={index} divider>
-                            <Paper elevation={1} sx={{ padding: 2 }}>
+                            <Paper elevation={1} sx={{width:'100%', padding: 2 }}>
                                 <Typography variant="h6">{benefit.title}</Typography>
                                 <Typography variant="body1" sx={{ mt: 1 }}>{benefit.description}</Typography>
                                 <Typography variant="body2" sx={{ mt: 1 }}>Eligibility: {benefit.eligibility}</Typography>

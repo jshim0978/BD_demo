@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import { Box, TextField, Button, Typography, Link } from '@mui/material';
+import userProfiles from '../userProfiles';  // Import the user profiles data
 
 function LoginPage({ onLogin }) {
     const [username, setUsername] = useState('');
@@ -18,9 +19,14 @@ function LoginPage({ onLogin }) {
     }, [navigate, onLogin]);
 
     const handleLogin = () => {
+        const userProfile = userProfiles.find(
+            user => user.name === username && user.password === password
+        );
         onLogin(username, password);
         sessionStorage.setItem('username', username); // Save username to sessionStorage
         sessionStorage.setItem('password', password); // Save password to sessionStorage
+        sessionStorage.setItem('userProfile', JSON.stringify(userProfile));  // Save user profile to sessionStorage
+
         navigate('/'); // Navigate to the main page or profile page after login
     };
 
