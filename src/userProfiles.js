@@ -558,7 +558,7 @@ const userProfiles = [
             },
             {
                 role: "품질 관리 분석가",
-                company: "Quality Makers Ltd.",
+                company: "Quality Makers Ltd. a.",
                 period: "2010 - 2013",
                 details: "제품 품질을 모니터링하고 보고하여 3년 동안 생산 오류를 15% 줄이는 데 도움을 주었습니다."
             }
