@@ -28,9 +28,9 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
     color: theme.palette.text.primary
 }));
 
-const StyledDivider = styled(Divider)({
-    margin: '16px 0'
-});
+const StyledDivider = styled(Divider)(({ theme }) => ({
+    margin: '16px 0',
+}));
 
 const StyledChip = styled(Chip)({
     marginRight: 8,
@@ -102,23 +102,25 @@ function MyPage({ user }) {
                 </Grid>
                 <Grid item xs={12} md={8}>
                     <StyledTypography variant="body1" paragraph>{user.summary}</StyledTypography>
-                    <StyledDivider />
+                    <StyledDivider sx={{bgcolor: '#1976d2', borderBottomWidth: 2}}/>
                     <StyledTypography variant="h6">특기</StyledTypography>
                     {user.skills.map((skill, index) => (
                         <StyledChip key={index} label={skill} variant="outlined" />
                     ))}
-                    <StyledDivider />
+                    <StyledDivider sx={{bgcolor: '#1976d2', borderBottomWidth: 2}}/>
                     <StyledTypography variant="h6">언어</StyledTypography>
                     {user.languages.map((language, index) => (
                         <StyledChip key={index} label={language} variant="outlined" />
                     ))}
-                    <StyledDivider />
+                    <StyledDivider sx={{bgcolor: '#1976d2', borderBottomWidth: 2}}/>
                     <StyledTypography variant="h6">자격증</StyledTypography>
                     {user.certifications.map((certification, index) => (
                         <StyledTypography key={index} variant="body2">{certification}</StyledTypography>
                     ))}
                 </Grid>
+                
                 <Grid item xs={12}>
+                <StyledDivider sx={{bgcolor: '#1976d2', borderBottomWidth: 2}}/>
                     <StyledTypography variant="h6">경력사항</StyledTypography>
                     {user.experiences.map((exp, index) => (
                         <StyledPaper key={index}>
@@ -129,6 +131,7 @@ function MyPage({ user }) {
                     ))}
                 </Grid>
                 <Grid item xs={12}>
+                <StyledDivider sx={{bgcolor: '#1976d2', borderBottomWidth: 2}}/>
                     <StyledTypography variant="h6">교육</StyledTypography>
                     {user.education.map((edu, index) => (
                         <StyledPaper key={index}>
@@ -138,6 +141,7 @@ function MyPage({ user }) {
                     ))}
                 </Grid>
                 <Grid item xs={12}>
+                <StyledDivider sx={{bgcolor: '#1976d2', borderBottomWidth: 2}}/>
                     <StyledTypography variant="h6">프로젝트</StyledTypography>
                     {user.projects.map((project, index) => (
                         <StyledPaper key={index}>
@@ -147,6 +151,7 @@ function MyPage({ user }) {
                     ))}
                 </Grid>
                 <Grid item xs={12}>
+                <StyledDivider sx={{bgcolor: '#1976d2', borderBottomWidth: 2}}/>
                     <StyledTypography variant="h6">출간물</StyledTypography>
                     {user.publications && user.publications.map((publication, index) => (
                         <StyledPaper key={index}>
@@ -156,6 +161,7 @@ function MyPage({ user }) {
                     ))}
                 </Grid>
                 <Grid item xs={12}>
+                <StyledDivider sx={{bgcolor: '#1976d2', borderBottomWidth: 2}}/>
                     <StyledTypography variant="h6">받고 있는 혜택</StyledTypography>
                     <Grid container spacing={2}>
                         {user.benefits && user.benefits.map((benefit, index) => (

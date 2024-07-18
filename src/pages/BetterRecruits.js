@@ -61,7 +61,7 @@ function BetterRecruits({user} ) {
 
     return (
         <StyledBox>
-            <Typography variant="h4" gutterBottom component="h1">
+            <Typography variant="h5" gutterBottom component="h1">
                 AI 추천 채용 정보
             </Typography>
             {/*<Typography variant="h4" gutterBottom>*/}
@@ -71,7 +71,8 @@ function BetterRecruits({user} ) {
                 <StyledButton
                     onClick={handleRecommendJobs}
                     disabled={loading}
-                    startIcon={loading ? <CircularProgress size={24}/> : <AiIcon/>}
+                    startIcon={loading ? <CircularProgress size={42}/> : <AiIcon style={{ fontSize: 42 }}/>}
+                    sx={{width: '200px', height: '50px', fontSize: '1.5rem'}}
                 >
                     {loading ? 'Loading...' : "AI 검색"}
                 </StyledButton>

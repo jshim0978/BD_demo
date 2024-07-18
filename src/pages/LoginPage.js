@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
-import { Box, TextField, Button, Typography, Link } from '@mui/material';
+import { Box, TextField, Button, Typography, Link, FormControlLabel, Checkbox, InputAdornment, IconButton } from '@mui/material';
 import userProfiles from '../userProfiles';  // Import the user profiles data
+import loginImage from '../assets/개인회원.PNG';
+
+import { CheckBox, Image } from '@mui/icons-material';
 
 function LoginPage({ onLogin }) {
     const [username, setUsername] = useState('');
@@ -41,23 +44,22 @@ function LoginPage({ onLogin }) {
                 padding: 3
             }}
         >
-            <Typography variant="h3" gutterBottom>
-                고용노동 공공데이터 활용 공모전
+            <Typography variant="h2" sx={{marginTop:'200px'}} gutterBottom>
+                M2Z2
             </Typography>
-            <br/>
-            <br/>
+            <Typography variant="h4" gutterBottom>
+                생성형 AI 기반 
+            </Typography>
+            <Typography variant="h4" gutterBottom>
+                커리어 관리 비서 서비스
+            </Typography>
+
             <br/>
 
-            <Typography variant="h4" gutterBottom>
-                M2Z2 - 생성형 AI 기반 커리어 관리 비서 서비스
-            </Typography>
+            <div className="container">
+                <img src={loginImage} alt={'imageError'} style={{width:'300px'}}/>
+            </div>
             <br/>
-            <br/>
-            <br/>
-            <br/>
-            <Typography variant="h5" gutterBottom>
-                로그인
-            </Typography>
             <TextField
                 label="아이디"
                 variant="outlined"
@@ -72,15 +74,46 @@ function LoginPage({ onLogin }) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 sx={{width: '300px', marginBottom: 2}}
+                endAdornment={
+                    <InputAdornment position="end">
+                        {/* <IconButton
+                            aria-label="toggle password visibility"
+                            edge="end"
+                        >
+                        </IconButton> */}
+                    </InputAdornment>
+                }
             />
-            <Button variant="contained" onClick={handleLogin} sx={{marginBottom: 2}}>
+            <FormControlLabel control={<Checkbox />} label="자동 로그인" />
+            <Button variant="contained" onClick={handleLogin} sx={{width:'300px', marginBottom: 2}}>
                 로그인
             </Button>
+            <Typography variant="body2">
+                <Link component={RouterLink} to="/register" underline="hover">
+                    아이디 찾기
+                </Link>
+                /
+                <Link component={RouterLink} to="/register" underline="hover">
+                    비밀번호 찾기
+                </Link>
+            </Typography>
+            <br/>
             <Typography variant="body2">
                 계정이 없으시다면 {' '}
                 <Link component={RouterLink} to="/register" underline="hover">
                     여기서 계정을 생성해주세요.
                 </Link>
+            </Typography>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <Typography variant="h5" gutterBottom>
+                고용노동 
+            </Typography>
+            <Typography variant="h5" gutterBottom>
+                공공데이터 활용 공모전
             </Typography>
         </Box>
     );

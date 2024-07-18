@@ -20,7 +20,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
 const StyledButton = styled(Button)(({ theme }) => ({
     marginTop: theme.spacing(2),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.light,
     '&:hover': {
         backgroundColor: theme.palette.secondary.dark,
         transform: 'translateY(-2px)',
@@ -72,7 +72,8 @@ function CareerPage({ user }) {
             <StyledButton
                 onClick={handleGenerateClick}
                 disabled={loading}
-                startIcon={loading ? <CircularProgress size={24} /> : <AiIcon />}
+                startIcon={loading ? <CircularProgress size={42}/> : <AiIcon style={{ fontSize: 42 }}/>}
+                sx={{width: '400px', height: '80px', fontSize: '1.5rem'}}
             >
                 {loading ? 'Loading...' : "AI 커리어 패스 생성"}
             </StyledButton>
